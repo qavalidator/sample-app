@@ -1,0 +1,49 @@
+= QAvalidator Sample App
+
+Welcome to QAvalidator.
+
+== About
+
+QAvalidator is a tool to model your architecture and check the dependencies in your code.
+
+This project is a simple example for how to apply QAvalidator to your build if you have a multi-module build.
+It's using both Gradle and Maven as build tool.
+
+
+== Build with Gradle
+
+Do a
+
+  ./gradlew [clean] build qavalidator
+
+to build and validate the project. Find the results in `build/qav-report`.
+
+== Build with Maven
+
+Do a
+
+  ./mvnw clean package qav:qav
+
+to build and validate the project. Find the results in `target/qav-report`.
+
+== Documentation
+
+For more information, go to the link:qav-doc/src/docs/asciidoc/qav-doc.adoc[documentation].
+
+
+== Contributing
+
+You are highly welcome to contribute improvements to this project.
+Please report bugs as Github issues.
+Pull Requests are welcome.
+
+
+== Maintainer
+
+Tilman Seifert (@tilmanseifert)
+
+== License
+
+This software is provided under the Apache License, Version 2.0 license.
+
+Copyright (c) 2014 QAware GmbH, https://www.qaware.de

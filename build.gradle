@@ -1,0 +1,26 @@
+buildscript {
+	repositories {
+		jcenter()
+        mavenLocal()
+	}
+	dependencies {
+		classpath "de.qaware.qav:qav-gradle-plugin:1.2.7-SNAPSHOT"
+	}
+}
+
+subprojects {
+
+	apply plugin: 'java'
+	group = 'de.qaware.qav'
+	version = '1.2.5'
+	
+	sourceCompatibility = 1.8
+
+	repositories {
+		jcenter()
+	}
+
+}
+
+apply plugin: "de.qaware.qav.gradle.qavalidator"
+// QAvalidator: No config required if we use the default value. See documentation for more details.
