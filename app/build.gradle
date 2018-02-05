@@ -13,10 +13,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
-group = 'de.qaware.qav'
-version = '1.2.6-SNAPSHOT'
-sourceCompatibility = 1.8
-
 repositories {
 	mavenCentral()
 }

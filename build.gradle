@@ -4,7 +4,7 @@ buildscript {
         mavenLocal()
 	}
 	dependencies {
-		classpath "de.qaware.qav:qav-gradle-plugin:1.2.6"
+		classpath "de.qaware.qav:qav-gradle-plugin:1.2.7"
 	}
 }
 
@@ -12,7 +12,7 @@ subprojects {
 
 	apply plugin: 'java'
 	group = 'de.qaware.qav'
-	version = '1.2.7-SNAPSHOT'
+	version = '1.2.8-SNAPSHOT'
 	
 	sourceCompatibility = 1.8
 
