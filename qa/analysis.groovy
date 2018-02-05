@@ -11,7 +11,14 @@ analysis("Step 1: Analyze Package Architecture") {
     writeFile(dependencyGraph, "dependencyGraph.json")
 }
 
-analysis("Step 2: Analyze and check T-View Architecture") {
+analysis("Step 2: Check for unwanted imports") {
+    // find unwanted imports:
+    // Don't use java.util.Date (rather Joda or java.time.**), and get rid of an old library:
+    def unwantedGraph = findDependenciesTo(allClassesGraph, "java.util.Date", "org.mean.old.stuff.**")
+    printNodes(unwantedGraph, "unwantedImports.txt", false)
+}
+
+analysis("Step 3: Analyze and check T-View Architecture") {
     // Read the given Architecture DSL file. The architecture will be available
     // under the name defined in the Architecture DSL file; it can be accessed
     // with: architecture("T-View")
@@ -34,7 +41,7 @@ analysis("Step 2: Analyze and check T-View Architecture") {
     checkArchitectureRules(architectureTView, architecture("T-View"))
 }
 
-analysis("Step 3: Export as DOT, GraphML, and JSON") {
+analysis("Step 4: Export as DOT, GraphML, and JSON") {
     // graphical export as DOT (for GraphViz) and GraphML (for yEd)
     writeDot(architectureTView, "architectureTView", architecture("T-View"))
     writeDot(architectureTViewOnInput, "architectureTViewOnInput", architecture("T-View"))
