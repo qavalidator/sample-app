@@ -5,11 +5,11 @@
 
     <parent>
         <groupId>de.qaware.qav</groupId>
-        <artifactId>sample</artifactId>
+        <artifactId>sample-app</artifactId>
         <version>1.2.8-SNAPSHOT</version>
     </parent>
 
-    <artifactId>sample-app</artifactId>
+    <artifactId>app</artifactId>
 
     <name>QAvalidatorSampleApp :: App</name>
     <description>QAvalidator Sample App</description>
@@ -18,12 +18,12 @@
     <dependencies>
         <dependency>
             <groupId>de.qaware.qav</groupId>
-            <artifactId>sample-api</artifactId>
+            <artifactId>api</artifactId>
         </dependency>
 
         <dependency>
             <groupId>de.qaware.qav</groupId>
-            <artifactId>sample-util</artifactId>
+            <artifactId>util</artifactId>
         </dependency>
 
         <dependency>

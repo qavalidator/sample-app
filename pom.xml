@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>de.qaware.qav</groupId>
-    <artifactId>sample</artifactId>
+    <artifactId>sample-app</artifactId>
     <version>1.2.8-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -29,7 +29,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <qav-plugin.version>1.2.7</qav-plugin.version>
+        <qav-plugin.version>1.2.13-SNAPSHOT</qav-plugin.version>
     </properties>
 
     <build>
@@ -39,18 +39,16 @@
                     <groupId>de.qaware.qav</groupId>
                     <artifactId>qav-maven-plugin</artifactId>
                     <version>${qav-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>qav</id>
-                            <goals>
-                                <goal>qav</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                     <configuration>
-                        <failOnError>false</failOnError>
-                        <useDefaultInputDirs>true</useDefaultInputDirs>
-                        <outputDir>target/qav-report</outputDir>
+						<!-- for qav:qav -->
+						<analysisFilename>qa/analysis.groovy</analysisFilename>
+						<failOnError>false</failOnError>
+						<useDefaultInputDirs>true</useDefaultInputDirs>
+						<outputDir>target/qav-report</outputDir>
+						
+						<!-- for qav:server -->
+						<graph>target/qav-report/dependencyGraph.json</graph>
+						<port>8080</port>
                     </configuration>
                 </plugin>
             </plugins>
@@ -68,22 +66,31 @@
         <dependencies>
             <dependency>
                 <groupId>de.qaware.qav</groupId>
-                <artifactId>sample-api</artifactId>
+                <artifactId>api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.qaware.qav</groupId>
-                <artifactId>sample-app</artifactId>
+                <artifactId>app</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.qaware.qav</groupId>
-                <artifactId>sample-util</artifactId>
+                <artifactId>util</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
     <repositories>
         <repository>
             <id>jcenter</id>

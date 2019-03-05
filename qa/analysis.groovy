@@ -42,3 +42,17 @@ analysis("Step 4: Export as DOT, GraphML, and JSON") {
     // this is to import it into qav-app for interactive exploration of the dependency graph
     writeFile(dependencyGraph, "dependencyGraph.json")
 }
+
+analysis("Step 5: Read Gradle architecture") {
+	if (new File("build/qav-report/gradleDependencyGraph.json").exists()) {
+	def gradleGraph = readFile("build/qav-report/gradleDependencyGraph.json")
+	writeDot(gradleGraph, "gradleGraph", new de.qaware.qav.architecture.dsl.model.Architecture())
+	}
+}
+
+analysis("Step 6: Read Gradle architecture") {
+    if (new File("target/qav-report/mavenDependencyGraph.json").exists()) {
+	def mavenGraph = readFile("target/qav-report/mavenDependencyGraph.json")
+	writeDot(mavenGraph, "mavenGraph", new de.qaware.qav.architecture.dsl.model.Architecture())
+	}
+}
