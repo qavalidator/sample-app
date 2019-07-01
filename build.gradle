@@ -4,7 +4,7 @@ buildscript {
         mavenLocal()
 	}
 	dependencies {
-		classpath "de.qaware.qav:qav-gradle-plugin:1.2.13-SNAPSHOT"
+		classpath "de.qaware.qav:qav-gradle-plugin:1.2.15"
 	}
 }
 
